@@ -10,7 +10,9 @@ class App extends Component {
   }
 
   onSuccess = (response) => {
+    console.log( "@twitter response on success");
     const token = response.headers.get('x-auth-token');
+    console.log( "twitter login success token:", token);
     response.json().then(user => {
       if (token) {
         this.setState({isAuthenticated: true, user: user, token: token});
